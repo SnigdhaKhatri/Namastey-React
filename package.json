@@ -1,0 +1,11 @@
+{
+  "name": "namastey-react",
+  "version": "1.0.0",
+  "description": "react-couse",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "author": "Snigdha",
+  "license": "ISC"
+}
