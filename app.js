@@ -1,17 +1,42 @@
 import React from "react"
 import ReactDOM from "react-dom/client"
 
-const parent = React.createElement("div", {
-    "id": "parent1"
-}, [React.createElement("h1", {}, "I am H1"),
-React.createElement("h2", {}, "I am H2")]);
+const reactHeading = React.createElement('h1', {}, "H1 from React");
 
-// const parent = React.createElement("div", {}, React.createElement("h1", {}, "I am H1"));
+//React element
+const jsxHeading = (<h1 className="head">
+    H1 from JSX
+    </h1>);
 
-// const heading = React.createElement("h1", {
-//     "id": "heading",
-//     "abc": "xyz"
-// }, "Hello World from React");
+//React functional component 
+const HeadingComponent = () => (
+    <div id="container">
+        <Title/>
+        <h1 className="Headdd">Hello from React Functional Component</h1>
+    </div>
+);
+
+//Another React Component 
+const Title = () => <h1>Title Component</h1>
+
+//React functional component 
+const HeadingComponent2 = () => (
+    // <></> is react fragment
+    <>
+        {/*Calling component inside another component = Component Composition*/}
+        <Title/>
+        <Title></Title>
+        {Title()}
+
+        {/*Any JS can be written inside the Curly braces*/}
+        {jsxHeading}
+        {reactHeading}
+        {123 + 123}
+
+        <h1 className="Headdd">Hello from React Functional Component</h1>
+    </>
+);
+
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(parent);
+root.render(<HeadingComponent2/>);
