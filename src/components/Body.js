@@ -3,10 +3,14 @@ import {restaurantList} from '../util/MockData'
 import { useEffect, useState } from "react";
 import { SWIGGY_API } from "../util/Constant";
 import Shimmer from "./Shimmer";
+import NoRestaurants from "./NoRestaurants";
 
 const Body = () => {
     //state variable
     const [resList, setResList] = useState([]);
+    //search functionality
+    const [searchInput, setSearchInput] = useState("");
+    const [filteredResList, setFilteredResList] = useState(resList);
 
     // useEffect hook [arguments - callback function and dependency array]
     useEffect(() => {
@@ -19,6 +23,7 @@ const Body = () => {
 
         updatedResList = await updateRestaurantList(json);
         setResList(updatedResList);
+        setFilteredResList(updatedResList);
     }
 
     const updateRestaurantList = (jsonData) => {
@@ -33,6 +38,17 @@ const Body = () => {
 
     return resList.length === 0 ? <Shimmer/> : (
         <div className="body">
+
+            <div className="search-panel">
+                <input type="text" className="searchInput" value={searchInput} placeholder="Search....." onChange={(e)=>{setSearchInput(e.target.value)}}/>
+                <button className="search-btn" onClick={()=>{
+                    const searchedResList = resList.filter((rec)=>{
+                        return rec?.info?.name?.toLowerCase().includes(searchInput.toLowerCase());
+                    })
+                    setFilteredResList(searchedResList);
+                }}>Search</button>
+            </div>
+
             <div className="filter">
                 <button className="filter-btn" onClick={()=>{
                     const filteredList = resList.filter(
@@ -41,8 +57,9 @@ const Body = () => {
                     setResList(filteredList);
                 }}>See Top Rated Restaurants</button>
             </div>
+
             <div className="res-container">
-                {resList.map( (res) => {
+                {filteredResList.map( (res) => {
                     return <ResCard key={res?.info?.id} resData={...res?.info}/>
                 })}
             </div>
