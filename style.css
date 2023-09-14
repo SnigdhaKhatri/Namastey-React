@@ -1,3 +1,62 @@
-#heading{
-    color: purple
+.app-logo {
+    width: 80px;
+}
+
+.app-name {
+    color: darkolivegreen;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid darkseagreen
+}
+
+.nav-bar {
+    display: flex;
+    margin: 10px;
+}
+
+.nav-bar > li {
+    padding: 10px;
+    list-style-type: none;
+}
+
+.nav-bar > li:hover{
+    background-color: darkseagreen;
+    cursor: pointer;
+}
+
+.res-container {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 10px;
+    justify-content: space-around;
+}
+
+.res-card {
+    width: 200px;
+    /* height:300px; */
+    padding: 5px;
+    margin: 10px;
+    text-align: center;
+}
+
+.res-card:hover {
+    border: 1px solid darkseagreen;
+    background-color: darkseagreen;
+    cursor: pointer;
+}
+
+.res-logo {
+    width: 100%;
+    border-radius: 25px;
+}
+
+.search {
+    padding: 10px;;
+}
+
+.footer {
+    padding: 10px;
 }
