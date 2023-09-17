@@ -40,6 +40,8 @@
     padding: 5px;
     margin: 10px;
     text-align: center;
+    background-color: #f0f0f0;
+    border-radius: 25px;
 }
 
 .res-card:hover {
@@ -67,11 +69,16 @@
     flex-wrap: wrap;
 }
 
+.seeAll-btn {
+    margin: 15px;
+}
+
 .shimmer-card{
     width: 200px;
     height: 300px;
     margin: 10px;
-    background-color: darkseagreen;
+    background-color: #f0f0f0;
+    border-radius: 25px;
 }
 
 .filter{
@@ -89,5 +96,24 @@
 }
 
 .search-btn{
-    margin: 5px;
+    margin-left: 5px;
+}
+
+.search-input {
+    margin: 15px;
+}
+
+.options-container {
+    display: flex;
+}
+
+
+.menuItemCard{
+    /* width: 200px; */
+    padding: 10px;
+}
+.menuItemCard > li{
+    padding: 15px;
+    list-style-type: none;
+    background-color: #f0f0f0;
 }
