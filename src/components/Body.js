@@ -1,5 +1,4 @@
 import ResCard from "./ResCard";
-import {restaurantList} from '../util/MockData'
 import { useEffect, useState } from "react";
 import { SWIGGY_API } from "../util/Constant";
 import Shimmer from "./Shimmer";
@@ -65,7 +64,7 @@ const Body = () => {
 
             <div className="res-container">
                 {filteredResList.map( (res) => (
-                        <Link key={res?.info?.id} to={"/restaurants/" + res?.info?.id}><ResCard resData={...res?.info}/></Link>
+                        <Link key={res?.info?.id} to={"/restaurants/" + res?.info?.id}><ResCard resData={...res?.info} /></Link>
                     )
                 )}
             </div>
